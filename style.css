@@ -1,0 +1,133 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  color: black;
+  font-family: tahoma;
+}
+
+.items ul {
+  padding-top: 20px;
+  position: relative;
+}
+
+.items li {
+  float: left;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 20px 5px 0 5px;
+}
+
+.items li::before,
+.items li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  height: 45px;
+  z-index: -1;
+  border-top: 1px solid grey;
+}
+
+.items li::after {
+  border-left: 1px solid grey;
+  left: 50%;
+  right: auto;
+}
+
+.items li:only-child::after,
+.items li:only-child::before {
+  display: none;
+}
+
+.items li:only-child {
+  padding-top: 0;
+}
+
+.items li:first-child::before,
+.items li:last-child::after {
+  border: 0 none;
+}
+
+.items li:last-child::before {
+  border-right: 1px solid grey;
+  border-radius: 0 5px 0 0;
+}
+
+.items li:first-child::after {
+  border-radius: 5px 0 0 0;
+}
+
+.items ul ul::before {
+  content: "";
+  border-left: 1px solid grey;
+  z-index: -1;
+  height: 20px;
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 0;
+}
+
+.items li a {
+  font-size: 12px;
+  background-color: white;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.items li a:hover {
+  background-color: #eee;
+}
+
+.items li a + a {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.items li a:first-child {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.items li > a:not(:only-child)::after {
+  content: "";
+  position: absolute;
+  border-right: 1px solid grey;
+  top: 20px;
+  height: 20px;
+  width: 0;
+  left: 50%;
+  z-index: -1;
+}
+
+.items li > a:not(:only-of-type):not(:last-of-type)::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: auto;
+  width: 110%;
+  border-top: 1px solid grey;
+}
+
+.items li > a:last-of-type:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: auto;
+  width: 42%;
+  border-top: 1px solid grey;
+}
+
+.items li > a:first-of-type:first-child::before {
+  left: 50%;
+}
+
+.items li > a:last-of-type:last-child::before {
+  left: 50%;
+}
